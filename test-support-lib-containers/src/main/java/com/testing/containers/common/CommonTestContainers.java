@@ -7,9 +7,11 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 import org.wiremock.integrations.testcontainers.WireMockContainer;
 
+import java.time.Duration;
+
 public final class CommonTestContainers {
   private static final String LATEST = "latest";
-  private static final String SHARED_SERVICES_DOCKER_PUBLIC = "docker.io/library/"; //CHANGE ME if you must use a private registery for your company
+  private static final String SHARED_SERVICES_DOCKER_PUBLIC = ""; //CHANGE ME if you must use a private registery for your company, example: docker.io/
 
   private CommonTestContainers() {
   }
@@ -18,7 +20,8 @@ public final class CommonTestContainers {
   public static ArtemisContainer artemis() {
     return new ArtemisContainer(getDockerImageName("apache/activemq-artemis").withTag(LATEST))
         .withEnv("ANONYMOUS_LOGIN", "true")
-        .withReuse(true);
+        .withReuse(true)
+        .withStartupTimeout(Duration.ofMinutes(1));
   }
 
   @SuppressWarnings("resource")

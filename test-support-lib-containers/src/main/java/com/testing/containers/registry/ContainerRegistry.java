@@ -30,6 +30,10 @@ public final class ContainerRegistry {
   }
 
   public static GenericContainer<?> get(ContainerType containerType) {
+    if(Boolean.FALSE.equals(enabled.getOrDefault(containerType, Boolean.FALSE))) {
+      throw new ContainerNotEnabledException(containerType.getName() + " container is not enabled");
+    }
+
     return containers.computeIfAbsent(containerType, t -> {
       throw new ContainerNotEnabledException(t.getName() + " container is registered as enabled but not found");
     });
