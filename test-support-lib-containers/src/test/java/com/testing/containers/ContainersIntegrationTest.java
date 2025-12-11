@@ -13,7 +13,7 @@ import com.testing.containers.registry.ContainerRegistry;
 @EnableTestContainers({ContainerType.ARTEMIS, ContainerType.DYNAMODB, ContainerType.POSTGRES, ContainerType.WIREMOCK, ContainerType.SQS})
 class ContainersIntegrationTest {
   @Test
-  void shouldStartContainers() {
+  void shouldStartAllContainers() {
     assertNotNull(ContainerRegistry.getSqs());
     assertNotNull(ContainerRegistry.getArtemis());
     assertNotNull(ContainerRegistry.getDynamoDb());

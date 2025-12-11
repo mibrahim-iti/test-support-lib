@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public final class CommonTestContainers {
   private static final String LATEST = "latest";
-  private static final String SHARED_SERVICES_DOCKER_PUBLIC = ""; //CHANGE ME if you must use a private registery for your company, example: docker.io/
+  private static final String SHARED_SERVICES_DOCKER_PUBLIC = "artifactory.sharedservices.prod.euw1.vg-cs.net/docker-public/"; //CHANGE ME if you must use a private registery for your company, example: docker.io/
 
   private CommonTestContainers() {
   }
