@@ -19,11 +19,11 @@ The library automatically adapts to both Spring TestContext and JUnit Jupiter li
 * Add the next dependency to your project
 ```bash
 <dependency>
-  	<groupId>com.test.support.lib</groupId>
-  	<artifactId>test-support-lib-containers</artifactId>
-  	<version>1.0.0</version>
-  	<scope>test</scope>
-  </dependency>
+  <groupId>com.test.support.lib</groupId>
+  <artifactId>test-support-lib-containers</artifactId>
+  <version>1.0.0</version>
+  <scope>test</scope>
+</dependency>
 ```
 
 * Use it in top of your @SpringBootTest for example
