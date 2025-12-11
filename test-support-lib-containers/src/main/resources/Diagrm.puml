@@ -1,0 +1,57 @@
+@startuml
+start
+:Test class discovered;
+
+note right
+The moment when JUnit (or the test engine) finds and recognizes a class
+as a test, before any Spring or TestExecutionListeners are invoked.
+
+* @Test
+* @RunWith(SpringRunner.class) or @ExtendWith(SpringExtension.class)
+* @SpringBootTest
+end note
+
+:TestExecutionListener.beforeTestClass();
+
+note right
+SelectiveContainersListener.beforeTestClass()
+→ Start containers
+'---
+'
+'TestExecutionListener.beforeTestClass() runs before @BeforeClass / @BeforeAll
+'because Spring must initialize the test environment (containers, properties,
+'context config) BEFORE JUnit begins executing test lifecycle methods.
+end note
+
+
+:JUnit @BeforeClass / @BeforeAll;
+
+:ApplicationContextInitializer.initialize();
+note right
+TestContainersContextInitializer.initialize()
+→ Add container properties
+end note
+
+:@DynamicPropertySource methods;
+
+:Spring context refresh;
+note right
+Environment prepared
+Beans created
+BeanPostProcessors
+end note
+
+:JUnit @Before / @BeforeEach;
+
+:Run test method;
+
+:JUnit @After / @AfterEach;
+
+:TestExecutionListener.afterTestClass();
+note right
+SelectiveContainersListener.afterTestClass()
+→ Stop containers
+end note
+
+stop
+@enduml

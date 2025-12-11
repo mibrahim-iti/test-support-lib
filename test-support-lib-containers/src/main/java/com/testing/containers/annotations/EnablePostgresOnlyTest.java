@@ -1,0 +1,16 @@
+package com.testing.containers.annotations;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import com.testing.containers.enums.ContainerType;
+
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Documented
+@EnableTestContainers({ContainerType.POSTGRES})
+public @interface EnablePostgresOnlyTest {
+}
