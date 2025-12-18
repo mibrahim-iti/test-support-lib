@@ -48,7 +48,7 @@ public class JupiterContainersExtension implements BeforeAllCallback, AfterAllCa
       );
     }
 
-    if (classAnnotations != null) {
+    if (classAnnotations != null && !testClass.isAnnotationPresent(SpringBootTest.class)) {
       classLevelUsed = true;
       EnumSet<ContainerType> containerTypes = EnumSet.copyOf(Arrays.asList(classAnnotations.value()));
       DockerContainersManager.init(containerTypes);

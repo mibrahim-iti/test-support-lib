@@ -13,6 +13,6 @@ import com.testing.containers.extensions.JupiterContainersExtension;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @ExtendWith(JupiterContainersExtension.class)
-public @interface EnableJupiterTestContainers {
+@interface EnableJupiterTestContainers {
   ContainerType[] value() default {};
 }

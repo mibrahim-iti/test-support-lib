@@ -19,6 +19,6 @@ import com.testing.containers.listeners.SelectiveContainersListener;
     mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS
 )
 @ContextConfiguration(initializers = TestContainersContextInitializer.class)
-public @interface EnableSpringTestContainers {
+@interface EnableSpringTestContainers {
   ContainerType[] value() default {};
 }

@@ -13,4 +13,6 @@ import com.testing.containers.enums.ContainerType;
 @EnableJupiterTestContainers // Works only when JUnit 5 is active
 public @interface EnableTestContainers {
   ContainerType[] value() default {};
+
+  WireMockConfig[] wireMockConfig() default {};
 }
