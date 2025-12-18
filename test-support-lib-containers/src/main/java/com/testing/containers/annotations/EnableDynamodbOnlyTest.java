@@ -9,6 +9,6 @@ import com.testing.containers.enums.ContainerType;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@EnableTestContainers({ContainerType.POSTGRES})
+@EnableTestContainers({ContainerType.DYNAMODB})
 public @interface EnableDynamodbOnlyTest {
 }
